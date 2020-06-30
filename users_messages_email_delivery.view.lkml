@@ -1,6 +1,6 @@
 # Email Delivery Events
 view: users_messages_email_delivery {
-  sql_table_name: PUBLIC.USERS_MESSAGES_EMAIL_DELIVERY ;;
+  sql_table_name: USERS_MESSAGES_EMAIL_DELIVERY_SHARED ;;
 
   dimension: id {
     primary_key: yes
@@ -42,14 +42,14 @@ view: users_messages_email_delivery {
     description: "id of the step for this message if from a Canvas"
     hidden: yes
     type: string
-    sql: ${TABLE}."CANVAS_STEP_ID" ;;
+    sql: ${TABLE}."CANVAS_STEP_API_ID" ;;
   }
 
   dimension: canvas_variation_id {
     description: "id of the Canvas variation the user is in if from a Canvas"
     hidden: yes
     type: string
-    sql: ${TABLE}."CANVAS_VARIATION_ID" ;;
+    sql: ${TABLE}."CANVAS_VARIATION_API_ID" ;;
   }
 
   dimension: email_address {
@@ -95,7 +95,7 @@ view: users_messages_email_delivery {
     description: "id of the message variation if from a campaign"
     hidden: yes
     type: string
-    sql: ${TABLE}."MESSAGE_VARIATION_ID" ;;
+    sql: ${TABLE}."MESSAGE_VARIATION_API_ID" ;;
   }
 
   dimension: send_id {

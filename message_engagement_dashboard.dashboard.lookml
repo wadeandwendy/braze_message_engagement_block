@@ -11,7 +11,7 @@
     - users_messages_email_open.email_unique_open_rate
     - users_messages_email_open.email_unique_opens
     - users_messages_email_send.emails_sent
-    - users_messages_email_send.campaign_name
+#     - users_messages_email_send.campaign_name
     filters:
       users_messages_email_send.campaign_id: "-NULL"
     sorts:
@@ -97,7 +97,7 @@
     - users_messages_email_click.email_unique_click_rate
     - users_messages_email_click.email_unique_clicks
     - users_messages_email_send.emails_sent
-    - users_messages_email_send.campaign_name
+#     - users_messages_email_send.campaign_name
     filters:
       users_messages_email_send.campaign_id: "-NULL"
     sorts:
@@ -184,7 +184,7 @@
     - users_messages_email_open.email_unique_open_rate
     - users_messages_email_open.email_unique_opens
     - users_messages_email_send.emails_sent
-    - users_messages_email_send.campaign_name
+#     - users_messages_email_send.campaign_name
     filters:
       users_messages_email_send.campaign_id: "-NULL"
     sorts:
@@ -270,7 +270,7 @@
     - users_messages_email_click.email_unique_click_rate
     - users_messages_email_click.email_unique_clicks
     - users_messages_email_send.emails_sent
-    - users_messages_email_send.campaign_name
+#     - users_messages_email_send.campaign_name
     filters:
       users_messages_email_send.campaign_id: "-NULL"
     sorts:

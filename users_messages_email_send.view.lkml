@@ -1,6 +1,6 @@
 # Email Send Events
 view: users_messages_email_send {
-  sql_table_name: DATALAKE_SHARING.USERS_MESSAGES_EMAIL_SEND ;;
+  sql_table_name: USERS_MESSAGES_EMAIL_SEND_SHARED ;;
 
   dimension: id {
     primary_key: yes
@@ -16,11 +16,15 @@ view: users_messages_email_send {
     sql: ${TABLE}."CAMPAIGN_ID" ;;
   }
 
-  dimension: campaign_name {
-    description: "name of the campaign"
-    type: string
-    sql: ${TABLE}."CAMPAIGN_NAME" ;;
-  }
+#####################
+# no column for this
+#####################
+#   dimension: campaign_name {
+#     description: "name of the campaign"
+#     type: string
+#     sql: ${TABLE}."CAMPAIGN_NAME" ;;
+#   }
+#####################
 
   dimension: canvas_id {
     description: "id of the canvas if from a canvas"
@@ -28,22 +32,26 @@ view: users_messages_email_send {
     sql: ${TABLE}."CANVAS_ID" ;;
   }
 
-  dimension: canvas_name {
-    description: "name of the canvas"
-    type: string
-    sql: ${TABLE}."CANVAS_NAME" ;;
-  }
+#####################
+# no column for this
+#####################
+#   dimension: canvas_name {
+#     description: "name of the canvas"
+#     type: string
+#     sql: ${TABLE}."CANVAS_NAME" ;;
+#   }
+#####################
 
   dimension: canvas_step_id {
     description: "id of the step for this message if from a Canvas"
     type: string
-    sql: ${TABLE}."CANVAS_STEP_ID" ;;
+    sql: ${TABLE}."CANVAS_STEP_API_ID" ;;
   }
 
   dimension: canvas_variation_id {
     description: "id of the Canvas variation the user is in if from a Canvas"
     type: string
-    sql: ${TABLE}."CANVAS_VARIATION_ID" ;;
+    sql: ${TABLE}."CANVAS_VARIATION_API_ID" ;;
   }
 
   dimension: email_address {
@@ -86,7 +94,7 @@ view: users_messages_email_send {
   dimension: message_variation_id {
     description: "id of the message variation if from a campaign"
     type: string
-    sql: ${TABLE}."MESSAGE_VARIATION_ID" ;;
+    sql: ${TABLE}."MESSAGE_VARIATION_API_ID" ;;
   }
 
   dimension: send_id {

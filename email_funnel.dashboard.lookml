@@ -57,9 +57,9 @@
     show_silhouette: false
     totals_color: "#808080"
     series_types: {}
-    listen:
-      Campaign Name: users_messages_email_send.campaign_name
-      Canvas Name: users_messages_email_send.canvas_name
+#     listen:
+#       Campaign Name: users_messages_email_send.campaign_name
+#       Canvas Name: users_messages_email_send.canvas_name
     note_state: expanded
     note_display: above
     note_text: 'Note: use campaign name OR canvas name filters for best results.'
@@ -67,24 +67,24 @@
     col: 0
     width: 24
     height: 11
-  filters:
-  - name: Campaign Name
-    title: Campaign Name
-    type: field_filter
-    default_value: ''
-    allow_multiple_values: true
-    required: false
-    model: braze_currents_block_message_engagement
-    explore: users_messages_email_send
-    listens_to_filters: []
-    field: users_messages_email_send.campaign_name
-  - name: Canvas Name
-    title: Canvas Name
-    type: field_filter
-    default_value: ''
-    allow_multiple_values: true
-    required: false
-    model: braze_currents_block_message_engagement
-    explore: users_messages_email_send
-    listens_to_filters: []
-    field: users_messages_email_send.canvas_name
+#   filters:
+#   - name: Campaign Name
+#     title: Campaign Name
+#     type: field_filter
+#     default_value: ''
+#     allow_multiple_values: true
+#     required: false
+#     model: braze_currents_block_message_engagement
+#     explore: users_messages_email_send
+#     listens_to_filters: []
+#     field: users_messages_email_send.campaign_name
+#   - name: Canvas Name
+#     title: Canvas Name
+#     type: field_filter
+#     default_value: ''
+#     allow_multiple_values: true
+#     required: false
+#     model: braze_currents_block_message_engagement
+#     explore: users_messages_email_send
+#     listens_to_filters: []
+#     field: users_messages_email_send.canvas_name
