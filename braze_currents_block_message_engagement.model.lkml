@@ -1,7 +1,7 @@
 #########################
 # Connection
 #########################
-connection: "snowflake_events"
+connection: "snowflake_braze"
 
 #########################
 # Conversion Views
