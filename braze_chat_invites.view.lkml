@@ -1,4 +1,4 @@
-view: greenhouse_chat_invites {
+view: braze_chat_invites {
   derived_table: {
     sql:
       select
