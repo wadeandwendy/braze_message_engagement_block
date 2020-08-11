@@ -30,7 +30,7 @@ view: braze_chat_invites {
   }
 
   dimension: request_id {
-    type: number
+    type: string
     sql: ${TABLE}."request_id" ;;
   }
 
@@ -40,19 +40,19 @@ view: braze_chat_invites {
   }
 
   dimension: message_id {
-    type: number
+    type: string
     sql: ${TABLE}."message_id" ;;
   }
 
   measure: invites_requested {
     type: count_distinct
-    sql: ${TABLE}."invites_requested" ;;
+    sql: ${TABLE}."request_id" ;;
     drill_fields: [request_id, application_id]
   }
 
   measure: invites_sent {
     type: count_distinct
-    sql: ${TABLE}."invites_sent" ;;
+    sql: ${TABLE}."message_id" ;;
     drill_fields: [message_id]
   }
 }
