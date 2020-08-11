@@ -4,7 +4,7 @@ view: braze_chat_invites {
     sql:
       select
       ce.id as request_id,
-      split(parse_json(ce.properties):chat_url, "/")[array_length(split(parse_json(ce.properties):chat_url, "/")) - 1] as application_id,
+      split(parse_json(ce.properties):chat_url, '/')[array_length(split(parse_json(ce.properties):chat_url, '/')) - 1] as application_id,
       es.id as message_id
       from users_behaviors_customevent_shared ce
       left join users_messages_email_send_shared es on ce.user_id = es.user_id
