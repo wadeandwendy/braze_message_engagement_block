@@ -25,6 +25,7 @@ include: "email_messaging_cadence.view"
 include: "email_messaging_frequency.view"
 include: "users_messages_email_softbounce.view.lkml"
 include: "users_messages_email_unsubscribe.view.lkml"
+include: "braze_chat_invites.view.lkml"
 
 
 #########################
@@ -360,3 +361,5 @@ explore: push_messaging_cadence {}
 # }
 #
 #########################
+
+explore: braze_chat_invites {}
