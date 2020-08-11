@@ -1,4 +1,5 @@
 view: braze_chat_invites {
+  # 5ee199a7d21d705add627a59 is the campaign id for screening chat invites
   derived_table: {
     sql:
       select
@@ -7,6 +8,7 @@ view: braze_chat_invites {
       left join users_messages_email_send_shared es on ce.user_id = es.user_id
       where ce.name = 'screening.chat.requested'
       and es.email_address not like '%@wadeandwendy.ai%'
+      and es.campaign_id = '5ee199a7d21d705add627a59'
       and (parse_json(ce.properties):job_company = {% parameter client %} or {% parameter client %} is null)
       and datediff('day', to_timestamp_ltz(ce.time), current_timestamp(2)) <= 1
       and datediff('day', to_timestamp_ltz(es.time), current_timestamp(2)) <= 1
