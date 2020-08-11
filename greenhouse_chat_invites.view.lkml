@@ -7,10 +7,22 @@ view: greenhouse_chat_invites {
       left join users_messages_email_send_shared es on ce.user_id = es.user_id
       where ce.name = 'screening.chat.requested'
       and es.email_address not like '%@wadeandwendy.ai%'
-      and parse_json(ce.properties):job_company = 'Wade & Wendy'
+      and (parse_json(ce.properties):job_company = {% parameter parameter_name %} or {% parameter parameter_name %} is null)
       and datediff('day', to_timestamp_ltz(ce.time), current_timestamp(2)) <= 1
       and datediff('day', to_timestamp_ltz(es.time), current_timestamp(2)) <= 1
     ;;
+  }
+
+  parameter: client {
+    type: string
+    default_value: "Wade & Wendy"
+    suggestions: ["Wade & Wendy", "Randstad", "E*TRADE", "Randstad Direct", "CWC PCN",
+      "Equitable", "Lowell Herb", "RPO - Lyft", "Randstad RPO", "Randstad RCD",
+      "Comcast", "American Care Quest", "Carex", "Genuine Search Group", "Reveal Global Intelligence",
+      "Skiplagged", "Sealed", "Staff Garden", "Suzy", "M Financial",
+      "Azimuth", "Wallace Carter Jones", "Deluxe", "GTT", "CAI", "Venture University",
+      "RPO - Williams Lea Tag", "RPO - Marine Credit Union",
+      "RPO - Cetera", "RPO - Bosch", "RPO - Evoqua"]
   }
 
   dimension: invites_requested {
