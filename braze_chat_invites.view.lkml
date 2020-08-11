@@ -3,7 +3,9 @@ view: braze_chat_invites {
   derived_table: {
     sql:
       select
-      count(distinct ce.id) as invites_requested, count(distinct es.id) as invites_sent
+      ce.id as request_id,
+      split(parse_json(ce.properties):chat_url, "/")[array_length(split(parse_json(ce.properties):chat_url, "/")) - 1] as application_id,
+      es.id as message_id
       from users_behaviors_customevent_shared ce
       left join users_messages_email_send_shared es on ce.user_id = es.user_id
       where ce.name = 'screening.chat.requested'
@@ -27,13 +29,30 @@ view: braze_chat_invites {
       "RPO - Cetera", "RPO - Bosch", "RPO - Evoqua"]
   }
 
-  dimension: invites_requested {
+  dimension: request_id {
     type: number
-    sql: ${TABLE}."invites_requested" ;;
+    sql: ${TABLE}."request_id" ;;
   }
 
-  dimension: invites_sent {
+  dimension: application_id {
+    type: string
+    sql: ${TABLE}."application_id" ;;
+  }
+
+  dimension: message_id {
     type: number
+    sql: ${TABLE}."message_id" ;;
+  }
+
+  measure: invites_requested {
+    type: count_distinct
+    sql: ${TABLE}."invites_requested" ;;
+    drill_fields: [request_id, application_id]
+  }
+
+  measure: invites_sent {
+    type: count_distinct
     sql: ${TABLE}."invites_sent" ;;
+    drill_fields: [message_id]
   }
 }
